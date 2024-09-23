@@ -1,3 +1,7 @@
 [submodule "NVIM-Config"]
-	path = NVIM-Config
+	path = .config/nvim
 	url = https://github.com/rajsugavanam/NVIM-Config
+
+[submodule "ZSH-Theme"]
+	path = .oh-my-zsh
+	url = https://github.com/rajsugavanam/ZSH-Theme
