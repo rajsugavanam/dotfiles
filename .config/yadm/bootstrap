@@ -2,7 +2,7 @@
 #
 # Linux, install stuff
 installOSPackages() {
-    . /etc/*-release; DISTRO=$ID_LIKE
+    . /etc/os-release; DISTRO=$ID_LIKE
     if [[ $DISTRO == "debian" || $DISTRO == "ubuntu" ]]; then
         sudo apt install python3 -y
         sudo apt install neovim
