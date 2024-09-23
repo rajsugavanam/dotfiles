@@ -5,14 +5,22 @@ installOSPackages() {
     . /etc/os-release; DISTRO=$ID_LIKE
     if [[ $DISTRO == "debian" || $DISTRO == "ubuntu" ]]; then
         sudo apt install python3 -y
-        sudo apt install neovim
+        # sudo apt install neovim
     elif [[ $DISTRO == "fedora" ]]; then
         sudo yum install python3
-        sudo yum install neovim
+        # sudo yum install neovim
     else
         echo "Can't find package manager. You must install:"
         echo "python3"
     fi
+}
+
+installNeovim() {
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    "export PATH=\"$PATH:/opt/nvim-linux64/bin\"" > $HOME/.bashrc
+    "export PATH=\"$PATH:/opt/nvim-linux64/bin\"" > $HOME/.zshrc
 }
 
 if [[ "$OSTYPE" == "darwin"* || "$OSTYPE" == "linux"* ]]; then
@@ -33,3 +41,4 @@ else
     installOSPackages
 fi
 
+installNeovim
