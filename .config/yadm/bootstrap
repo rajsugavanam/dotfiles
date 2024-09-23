@@ -1,6 +1,6 @@
-#!bin/sh
+#!/bin/bash
 
-if ["$OSTYPE" == "darwin"*] || ["$OSTYPE" == "linux"*]; then
+if [[ "$OSTYPE" == "darwin"* || "$OSTYPE" == "linux"* ]]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     # oh my zsh should already be installed at this point. I think.
@@ -10,7 +10,7 @@ else
 fi
 
 # MacOS, install stuff
-if ["$OSTYPE" == "darwin"*]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     if [$? != 0]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install neovim
