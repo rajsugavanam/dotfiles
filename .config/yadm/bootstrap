@@ -1,0 +1,35 @@
+#!bin/sh
+
+if ["$OSTYPE" == "darwin"*] || ["$OSTYPE" == "linux"*]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # oh my zsh should already be installed at this point. I think.
+else
+    echo "Are you on Windows? I do not and will not include a bootstrap for Windows. Sorry!"
+    exit 1;
+fi
+
+# MacOS, install stuff
+if ["$OSTYPE" == "darwin"*]; then
+    if [$? != 0]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install neovim
+    fi
+else
+    installOSPackages
+fi
+
+# Linux, install stuff
+installOSPackages() {
+    . /etc/*-release; DISTRO=$ID_LIKE
+    if [ $DISTRO == "debian" || $DISTRO == "ubuntu" ]; then
+        sudo apt install python3 -y
+        sudo apt install neovim
+    elif [ $DISTRO == "fedora" ]; then
+        sudo yum install python3
+        sudo yum install neovim
+    else
+        echo "Can't find package manager. You must install:"
+        echo "python3"
+    fi
+}
