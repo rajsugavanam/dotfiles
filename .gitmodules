@@ -1,0 +1,3 @@
+[submodule "NVIM-Config"]
+	path = NVIM-Config
+	url = https://github.com/rajsugavanam/NVIM-Config
