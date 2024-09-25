@@ -21,14 +21,13 @@ installNeovim() {
     sudo tar -C /opt -xzf nvim-linux64.tar.gz
     touch $HOME/.bashrc
     touch $HOME/.zshrc
-    echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >& $HOME/.bashrc
-    echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >& $HOME/.zshrc
+    echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> $HOME/.bashrc
+    echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> $HOME/.zshrc
     echo 'Installed neovim!'
 }
 
 if [[ "$OSTYPE" == "darwin"* || "$OSTYPE" == "linux"* ]]; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh
-    $HOME/.nvm/install.sh
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     nvm install --latest-npm
     echo 'Installed nvm and npm!'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
