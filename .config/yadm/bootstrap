@@ -5,11 +5,13 @@ installOSPackages() {
     . /etc/os-release; DISTRO=$ID_LIKE
     if [[ $DISTRO == "debian" || $DISTRO == "ubuntu" ]]; then
         sudo apt install python3 -y
+        sudo apt install texlive-full
         python3 -m ensurepip --upgrade
         python3 -m pip install --user --upgrade pynvim
         # sudo apt install neovim
     elif [[ $DISTRO == "fedora" ]]; then
         sudo yum install python3
+        sudo yum install texlive-scheme-full
         python3 -m ensurepip --upgrade
         python3 -m pip install --user --upgrade pynvim
         # sudo yum install neovim
@@ -48,6 +50,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     if [$? != 0]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install neovim
+        brew install mactex-no-gui
         echo 'Installed brew!'
     fi
 else
