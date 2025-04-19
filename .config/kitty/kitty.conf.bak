@@ -70,7 +70,7 @@ font_size 14.0
 
 #:     narrow_symbols codepoints [optionally the number of cells]
 
-disable_ligatures never
+disable_ligatures always
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -88,7 +88,7 @@ disable_ligatures never
 #: implemented using the calt OpenType feature. For disabling general
 #: ligatures, use the font_features option.
 
-font_features
+# font_features
 
 #: E.g. font_features none
 
@@ -1825,7 +1825,7 @@ font_features
 #: background_opacity. If you want to use both, you are probably
 #: better off just hiding the titlebar with hide_window_decorations.
 
-# macos_option_as_alt no
+# macos_option_as_alt yes
 
 #: Use the Option key as an Alt key on macOS. With this set to no,
 #: kitty will use the macOS native Option+Key to enter Unicode
@@ -2667,8 +2667,11 @@ font_features
 include current-theme.conf
 # END_KITTY_THEME
 
+macos_option_as_alt yes
+background_opacity 0.90
+
 # BEGIN_KITTY_FONTS
-font_family      family="JetBrainsMono Nerd Font"
+font_family      family="0xProto Nerd Font Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
