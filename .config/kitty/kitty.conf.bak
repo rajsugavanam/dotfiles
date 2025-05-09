@@ -20,7 +20,7 @@
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-font_size 14.0
+# font_size 14.0
 
 #: Font size (in pts).
 
@@ -70,7 +70,7 @@ font_size 14.0
 
 #:     narrow_symbols codepoints [optionally the number of cells]
 
-disable_ligatures always
+# disable_ligatures always
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -2669,10 +2669,16 @@ include current-theme.conf
 
 macos_option_as_alt yes
 background_opacity 0.90
+# disable_ligatures always
 
 # BEGIN_KITTY_FONTS
-font_family      family="0xProto Nerd Font Mono"
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
+font_family      family='Iosevka Custom Sans' style=Extended
+bold_font        family='Iosevka Custom Sans' style='Bold Extended'
+italic_font      family='Iosevka Custom Sans' style='Extended Italic'
+bold_italic_font family='Iosevka Custom Sans' style='Bold Extended Italic'
 # END_KITTY_FONTS
+font_size 14.0
+
+modify_font underline_position 2
+modify_font underline_thickness 300%
+modify_font strikethrough_position 2px
