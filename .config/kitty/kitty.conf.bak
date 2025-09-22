@@ -2667,18 +2667,18 @@
 include current-theme.conf
 # END_KITTY_THEME
 
-macos_option_as_alt yes
+macos_option_as_alt no
 background_opacity 0.90
 # disable_ligatures always
 
 # BEGIN_KITTY_FONTS
-font_family      family='Iosevka Custom Sans' style=Extended
-bold_font        family='Iosevka Custom Sans' style='Bold Extended'
-italic_font      family='Iosevka Custom Sans' style='Extended Italic'
-bold_italic_font family='Iosevka Custom Sans' style='Bold Extended Italic'
+font_family      family=Monocraft postscript_name=Monocraft
+bold_font        family=Monocraft style=Bold
+italic_font      auto
+bold_italic_font family=Monocraft style=Bold-Italic
 # END_KITTY_FONTS
 font_size 14.0
 
-modify_font underline_position 2
-modify_font underline_thickness 300%
+modify_font underline_position 10
+modify_font underline_thickness 200%
 modify_font strikethrough_position 2px
